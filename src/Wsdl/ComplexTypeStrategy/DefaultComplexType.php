@@ -66,7 +66,7 @@ class DefaultComplexType extends AbstractComplexTypeStrategy
                 $element->setAttribute('type', $this->getContext()->getType(trim($matches[1][0])));
 
                 // If the default value is null, then this property is nillable.
-                if ($defaultProperties[$propertyName] === null) {
+                if (isset($defaultProperties[$propertyName]) && $defaultProperties[$propertyName] === null) {
                     $element->setAttribute('nillable', 'true');
                 }
 
