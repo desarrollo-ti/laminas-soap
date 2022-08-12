@@ -122,7 +122,8 @@ class ArrayOfTypeSequence extends DefaultComplexType
         $element = $dom->createElementNS(Wsdl::XSD_NS_URI, 'element');
         $sequence->appendChild($element);
 
-        $element->setAttribute('name', 'item');
+        $name = explode(':', $childType)[1];
+        $element->setAttribute('name', lcfirst($name));
         $element->setAttribute('type', $childType);
         $element->setAttribute('minOccurs', 0);
         $element->setAttribute('maxOccurs', 'unbounded');
